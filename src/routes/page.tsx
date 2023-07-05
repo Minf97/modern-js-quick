@@ -1,8 +1,9 @@
 import { List } from 'antd';
-import 'tailwindcss/base.css';
-import 'tailwindcss/components.css';
-import 'tailwindcss/utilities.css';
-import '../styles/utils.css';
+import { Helmet } from '@modern-js/runtime/head';
+// import 'tailwindcss/base.css';
+// import 'tailwindcss/components.css';
+// import 'tailwindcss/utilities.css';
+// import '../styles/utils.css';
 import Item from '../components/Item';
 
 const getAvatar = (users: Array<{ name: string; email: string }>) =>
@@ -21,6 +22,9 @@ const mockData = getAvatar([
 function Index() {
   return (
     <div>
+      <Helmet>
+        <title>All</title>
+      </Helmet>
       <List
         dataSource={mockData}
         renderItem={info => <Item key={info.name} info={info} />}
